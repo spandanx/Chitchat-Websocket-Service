@@ -21,3 +21,8 @@ rabbitmq:
   port: 61613
   username: guest
   password: guest
+
+in-memory-auth:
+  username: userws
+  password: passws
+  role: USER
