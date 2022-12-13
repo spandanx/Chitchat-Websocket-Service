@@ -1,6 +1,7 @@
 package com.example.WebsocketService.config;
 
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.web.embedded.undertow.UndertowServletWebServerFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -10,6 +11,8 @@ import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
+
+//import io.undertow.server.handlers.RequestDumpingHandler;
 
 @Configuration
 @EnableWebSecurity
@@ -53,4 +56,15 @@ public class WebSecurityConfig {
             .build();
         return new InMemoryUserDetailsManager(user);
     }
+	
+//	@Bean
+//    public UndertowServletWebServerFactory undertowServletWebServerFactory() {
+//        UndertowServletWebServerFactory factory = new UndertowServletWebServerFactory();
+//        factory.addDeploymentInfoCustomizers(deploymentInfo -> 
+//               	deploymentInfo.addInitialHandlerChainWrapper(handler -> {
+//        	return new RequestDumpingHandler(handler);
+//        }));
+//            
+//        return factory;
+//    }
 }
